@@ -76,6 +76,9 @@ The pipeline is triggered on:
 **Screenshot:**  
 *(Insert coverage screenshot here)*  
 
+
+
+
 ---
 
 ## 📝 Issues & Fixes
@@ -85,13 +88,6 @@ The pipeline is triggered on:
 
 ---
 
-## 🚀 Future Improvements
-- Add authentication (user login/signup).  
-- Use PostgreSQL instead of SQLite.  
-- Add deployment step (Docker + Heroku/AWS).  
-- Add performance/load testing.  
-
----
 
 ## ✅ Conclusion
 This project successfully demonstrated:  
@@ -105,7 +101,8 @@ The CI/CD pipeline ensures **reliable, consistent, and automated testing** for e
 
 
 
-fail status badge:    [![Flask CI/CD Pipeline](https://github.com/beastgoku121-netizen/cicdpytest/actions/workflows/ci.yml/badge.svg)](https://github.com/beastgoku121-netizen/cicdpytest/actions/workflows/ci.yml)
+- fail status badge:   (https://github.com/beastgoku121-netizen/cicdpytest/actions/workflows/ci.yml/badge.svg)
+- pass status badege:   https://github.com/beastgoku121-netizen/cicdpytest/actions/workflows/ci.yml)
 
 
 
