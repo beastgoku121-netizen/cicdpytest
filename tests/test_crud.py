@@ -16,7 +16,7 @@ def test_create_and_get_todo(client):
 
 def test_update_todo_success(client):
     # create
-    client.post("/todos", json={"title": "Old Task"})
+    client.post("/todos", json={"task": "Old Task"})
     # update
     res = client.patch("/todos/1", json={"title": "Updated Task"})
     assert res.status_code == 200
