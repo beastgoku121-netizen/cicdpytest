@@ -35,7 +35,7 @@ def test_mark_todo_done(client):
 
     # ab usko apan update krenge
     res = client.patch(f"/todos/{todo_id}", json={"is_done": True})
-    assert res.status_code == 200, (f"Expected 200 but got {res.status_code}")
+    assert res.status_code == 200, f"Expected 200 but got {res.status_code}"
 
     # yei sara data fecth kreaga json kei format
     data = res.get_json()
@@ -50,9 +50,7 @@ def test_invalid_request(client):
     # ab apan non exasting krke update dalke check krenge
     res = client.patch(f"/todos/{9999}", json={"id_done": True})
 
-    assert (
-        res.status_code == 404
-    ), "the id which you give is not there"
+    assert res.status_code == 404, "the id which you give is not there"
 
 
 def test_deleteto_request(client):
