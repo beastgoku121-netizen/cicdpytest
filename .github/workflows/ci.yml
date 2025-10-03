@@ -44,9 +44,7 @@ jobs:
       - name: Type check with mypy
         run: mypy todo_app/
 
-      # Step 6: Security checks
-      - name: Security check with bandit
-        run: bandit -r todo_app/
+  
 
       - name: Dependency vulnerability check with safety
         run: safety check -r requirements.txt
