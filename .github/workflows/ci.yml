@@ -14,7 +14,10 @@ jobs:
 
     strategy:
       matrix:
-        python-version: ["3.9", "3.10", "3.11"]
+        python-version:
+          - "3.9"
+          - "3.10"
+          - "3.11"
 
     steps:
       # Step 1: Checkout repository
@@ -32,7 +35,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-          pip install bandit safety flake8 black mypy pytest coverage
+          pip install bandit safety flake8 black mypy
 
       # Step 4: Set PYTHONPATH
       - name: Set PYTHONPATH
@@ -48,7 +51,6 @@ jobs:
       - name: Type check with mypy
         run: mypy todo_app/
 
-      # Step 6: Security checks
       - name: Dependency vulnerability check with safety
         run: safety check -r requirements.txt
 
@@ -56,16 +58,16 @@ jobs:
       - name: Run tests with pytest and coverage
         run: pytest --cov=todo_app --cov-report=xml --cov-report=html
 
-      # Step 8: Upload XML coverage report
+      # Step 8: Upload XML coverage report (matrix-specific name)
       - name: Upload coverage.xml
         uses: actions/upload-artifact@v4
         with:
-          name: coverage-xml
+          name: coverage-xml-${{ matrix.python-version }}
           path: coverage.xml
 
-      # Step 9: Upload HTML coverage report
+      # Step 9: Upload HTML coverage report (matrix-specific name)
       - name: Upload HTML coverage report
         uses: actions/upload-artifact@v4
         with:
-          name: html-coverage
+          name: html-coverage-${{ matrix.python-version }}
           path: htmlcov
