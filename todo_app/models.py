@@ -2,7 +2,7 @@ from . import db
 from datetime import datetime
 
 
-class Todo(db.Model):
+class Todo(db.Model):  # type: ignore
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(200), nullable=False)
     description = db.Column(db.Text, default="")
